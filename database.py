@@ -39,6 +39,16 @@ class Database():
             self.note_list.append(note_obj)
         return self.note_list
 
+    def get_specific(self, id):
+        self.string_edit = f"SELECT id, title, content FROM note WHERE id = {id}"
+        self.cursor = self.conn.execute(self.string_edit)
+        self.note_list = []
+        for linha in self.cursor:
+            note_obj = Note(linha[0], linha[1], linha[2])
+            self.note_list.append(note_obj)
+        print(f'{self.note_list} \n\n')
+        return self.note_list[0]
+
     def update(self, entry):
         string_edition = f"UPDATE note SET title = '{entry.title}', content = '{entry.content}' WHERE id = {entry.id};"
         self.cursor = self.conn.execute(string_edition)

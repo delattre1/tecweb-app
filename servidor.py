@@ -3,7 +3,7 @@ import socket
 
 from pathlib import Path
 from utils import extract_route, read_file
-from views import index
+from views import index, edit
 
 import os
 CUR_DIR = Path(__file__).parent
@@ -23,9 +23,11 @@ while True:
     client_connection, client_address = server_socket.accept()
 
     request = client_connection.recv(1024).decode()
-    print(request)
+    # print(request)
 
-    route = extract_route(request)
+    extracted_route = extract_route(request)
+    route = extracted_route[0]
+    note_id = extracted_route[1]
     filepath = CUR_DIR / route
     if filepath.is_file():
         extension = os.path.splitext(filepath)[1]
@@ -37,14 +39,14 @@ while True:
                 filepath), headers='Content-Type: text/javascript')
         else:
             response = build_response() + read_file(filepath)
-        print('is file')
 
     elif route == '':
-        # tirar o build response e colocar dentro da funcao
-        print('is home')
         response = index(request)
+
+    elif route == 'edit.html':
+        response = edit(request, note_id)
+
     else:
-        print('is else')
         response = build_response(
             body='404 Not Found', code=404, reason='Not Found')
 

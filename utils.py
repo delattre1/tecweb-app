@@ -3,15 +3,24 @@ import json
 
 
 def extract_route(request):
-    route = request.split()[1][1:]
-    return route
+    route_args = request.split()[1][1:]
+    route_args_split = route_args.split('?')
+    try:
+        args = route_args_split[1]
+        note_id = args.split('=')[1]
+    except:
+        note_id = None
+
+    route = route_args_split[0]
+    print(f'rota: {route_args_split}, idNote: {note_id}\n')
+    return route, note_id
 
 
 def read_file(path):
     extension = os.path.splitext(path)[1]
     format_text = ['.txt', '.html', '.js', '.css']
     if extension in format_text:
-        print(f'\nfilepath: {path} {extension}\n')
+        #print(f'\nfilepath: {path} {extension}\n')
         with open(path, 'rt') as file:
             return file.read()
 

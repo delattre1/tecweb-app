@@ -13,32 +13,34 @@
 <body>
 
 	<div class="appbar">
-			<img src="img/logo-getit.png" href="index.html" class="logo"/>
+		<img src="img/logo-getit.png" class="logo"/>
 		<p class="subtitle">Como o Post-it, mas com outro verbo</p>
 	</div>
 	
 	<main class="container">
+
 	    <form class="form-card" method="post">
 			<input
 			  class="form-card-title"
 			  type="text"
 			  name="titulo"
-			  placeholder="Título"
+			  placeholder="Editar Título"
 			/>
 			<textarea
 			  class="autoresize"
 			  name="detalhes"
-			  placeholder="Digite o conteúdo..."
+			  placeholder="Editar Conteúdo"
 			></textarea>
-			<button class="btn" type="submit">Criar</button>
+			<button class="btn" type="submit">Editar</button>
         </form>
-
 
 		<div class="card-container">
 			{notes}
 		</div>
+
 	</main>
     <script type="text/javascript" src="../docs/getit.js"></script>
 </body>
 </html>
+
 

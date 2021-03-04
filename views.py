@@ -32,9 +32,27 @@ def index(request):
 
     note_template = load_template('components/note.html')
     notes_li = [
-        note_template.format(title=dados.title, details=dados.content)
+        note_template.format(
+            title=dados.title, details=dados.content, id=dados.id)
         for dados in notes_list
     ]
     notes = '\n'.join(notes_li)
 
     return build_response() + load_template('index.html').format(notes=notes).encode()
+
+
+def edit(request, id):
+    if request.startswith('POST'):
+        request = request.replace('\r', '')  # Remove caracteres indesejados
+        # Cabeçalho e corpo estão sempre separados por duas quebras de linha
+        partes = request.split('\n\n')
+        corpo = partes[1]
+        note = get_note_from_post(corpo)
+        db.add(note)
+        return build_response(code=303, reason='See Other', headers='Location: /')
+
+    note = db.get_specific(id)  # just one element
+    note_template = load_template('components/note.html')
+    note = note_template.format(
+        title=note.title, details=note.content, id=id)
+    return build_response() + load_template('edit.html').format(notes=note).encode()
