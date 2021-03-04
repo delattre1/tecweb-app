@@ -19,18 +19,17 @@
 	
 	<main class="container">
 
-	    <form class="form-card" method="post">
+		<form class="form-card" method="post">
 			<input
 			  class="form-card-title"
 			  type="text"
 			  name="titulo"
 			  placeholder="Editar Título"
+			  value ="{title}"
 			/>
 			<textarea
 			  class="autoresize"
-			  name="detalhes"
-			  placeholder="Editar Conteúdo"
-			></textarea>
+			  name="detalhes">{content}</textarea>
 			<button class="btn" type="submit">Editar</button>
         </form>
 
