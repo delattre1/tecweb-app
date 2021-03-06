@@ -5,12 +5,20 @@ function getRandomInt(min, max) {
 }
 
 function editNote(id) {
-	window.location = "/edit.html?noteID="+id;
+	var title = document.getElementsByName('title-' + id)[0].innerText
+	var content = document.getElementsByName('content-' + id)[0].innerText
+
+	document.getElementsByName('id-hidden')[0].value = id
+	document.getElementsByName('titulo')[0].value = title
+	document.getElementsByName('detalhes')[0].value = content
+}
+
+function deleteForm(id) {
+	var buttonDelete = document.getElementsByName('deleteForm-' + id)[0]
+	buttonDelete.submit()
 }
 
 document.addEventListener("DOMContentLoaded", function () {
-  // Faz textarea aumentar a altura automaticamente
-  // Fonte: https://www.geeksforgeeks.org/how-to-create-auto-resize-textarea-using-javascript-jquery/#:~:text=It%20can%20be%20achieved%20by,height%20of%20an%20element%20automatically.
   let textareas = document.getElementsByClassName("autoresize");
   for (let i = 0; i < textareas.length; i++) {
     let textarea = textareas[i];

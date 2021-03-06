@@ -1,8 +1,25 @@
 <div class="card">
-	<h3 class="card-title">{title}</h3>
-	<button class="edit-button" onclick="editNote({id})">Edit</button>
+	
+	<a class="fill-button">
+	  <span class="fill-button-hover">		
+		  <span class="fill-button-text" onclick="editNote({id})">Edit Bonito</span>
+	  </span>
+	</a>
+
+	<a class="fill-button">
+	  <span class="fill-button-hover">		
+		  <span class="fill-button-text" onclick="deleteForm({id})">Delete Bonito</span>
+	  </span>
+	</a>
+
+	<form name="deleteForm-{id}" method="post">
+		<input type="hidden" name="deleteNote" value="{id}">
+	</form>
+
+	<h3 class="card-title" name="title-{id}">{title}</h3>
+
 	<div class="card-content">
-		<p>{details}</p>
+		<p name="content-{id}">{details}</p>
 	</div>
 </div>
 

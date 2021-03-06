@@ -3,7 +3,7 @@ import socket
 
 from pathlib import Path
 from utils import extract_route, read_file
-from views import index, edit
+from views import index
 
 import os
 CUR_DIR = Path(__file__).parent
@@ -42,9 +42,6 @@ while True:
 
     elif route == '':
         response = index(request)
-
-    elif route == 'edit.html':
-        response = edit(request, note_id)
 
     else:
         response = build_response(
