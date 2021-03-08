@@ -19,6 +19,7 @@
 	
 	<main class="container">
 	    <form class="form-card" method="post">
+			<input type="hidden" value='None' name='id-hidden'> 
 			<input
 			  class="form-card-title"
 			  type="text"
@@ -26,11 +27,11 @@
 			  placeholder="Título"
 			/>
 			<textarea
-			  class="autoresize"
+			  class="form-card-content"
 			  name="detalhes"
 			  placeholder="Digite o conteúdo..."
 			></textarea>
-			<button class="btn" type="submit">Criar</button>
+			<button class="btn" name="send-button" type="submit">Criar</button>
         </form>
 
 

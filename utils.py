@@ -1,5 +1,7 @@
 import os
 import json
+from urllib.parse import unquote_plus
+from database import Note
 
 
 def extract_route(request):
@@ -46,3 +48,21 @@ def build_response(body='', code='200', reason='OK', headers=''):
     else:
         response += '\n' + headers + '\n\n' + body
     return response.encode()
+
+
+def get_note_from_post(corpo):
+    note = []
+    for chave_valor in corpo.split('&'):
+        split = chave_valor.split('=')
+        key = unquote_plus(split[0])
+        value = unquote_plus(split[1])
+        note.append(value)
+
+    return Note(note[0], note[1], note[2])
+
+
+def verify_and_delete(body_request, database):
+    body_split = body_request.split('=')
+    if body_split[0] == 'deleteNote':
+        database.delete(body_split[1])
+        return True

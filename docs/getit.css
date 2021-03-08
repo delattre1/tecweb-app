@@ -1,30 +1,8 @@
-/*
-Algumas informações úteis e dicas:
-  - Fontes disponíveis:
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-  - Cores:
-    Tons de amarelo:
-      #e4fc2b
-      #e0d426
-      #f7d736
-      #e0af26
-      #fcb02b
-    Tons de cinza:
-      #2c2c2c
-      #4c4c4c
-    Cores dos cards:
-      #ead3a7
-      #9de0f5
-      #ef89ba
-      #fae890
-      #abe9c1
-  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
- */
 
 html,
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #c9c4b3;
 }
 
 .appbar {
@@ -51,15 +29,16 @@ body {
 form {
 	display: flex;
 	flex-direction: column;
-  align-self: center;
+	align-self: center;
 	width: 33%;
-  margin-right: auto;
+	margin-right: auto;
 	margin-left: auto;
-  margin-top: 2.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1.5rem;
-  border-radius: 0.35rem;
+	margin-top: 2.5rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
+	margin-bottom: 1.5rem;
+	border-radius: 0.35rem;
+	background-color: white;
 }
 
 
@@ -70,14 +49,17 @@ form {
   margin: 0.75rem;
 }
 
-.autoresize {
-  font-size: auto;
-  font-family: "Roboto", sans-serif;
-  border: none;
-  margin-top: 0.75rem;
-  margin-left: 0.75rem;
-  resize: none;
-	margin-bottom: 0.1rem;
+.ocult-form {
+	display: none;
+}
+
+.form-card-content {
+	font-size: 1rem;
+	font-family: "Roboto", sans-serif;
+	border: none;
+	margin: 0.75rem;
+	resize: none;
+	margin-bottom: 1rem;
 
 }
 
@@ -85,10 +67,10 @@ form {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  margin-right: 4rem;
-  margin-left: 4rem;
+	margin-top: 2rem;
+	margin-bottom: 3rem;
+	margin-right: 4rem;
+	margin-left: 4rem;
 
 }
 
@@ -97,32 +79,40 @@ form {
 	flex-direction: column;
 	justify-content: space-around;
 	width: 25%;
-  height: auto;
+	height: auto;
+	min-width: 8rem;
 	min-height: 8rem;
-  max-width: 15rem;
+	max-width: 15rem;
 	padding: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  margin-right: 0.15rem;
-  margin-left: 0.15rem;
-  border-radius: 0.35rem;
-  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	margin-right: 1.5rem;
+	border-radius: 0.35rem;
+	box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
+	
 }
 
 .card-title {
     font-family: 'Permanent Marker', cursive;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-top: -0.75rem;
+	margin-bottom: 0.5rem;
 }
 
 .card-content {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.2rem;
-  color:#4c4c4c ;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.2rem;
+	color:#4c4c4c ;
 	align-self:center;
 } 
 
+.buttons-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 1rem;
+
+}
 /* Você pode usar o CSS comentado abaixo, se ajudar */
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
 .btn {
@@ -222,3 +212,72 @@ form {
 .card-rotation-19 {transform: rotate(-2deg);}
 .card-rotation-20 {transform: rotate(-4deg);}
 .card-rotation-21 {transform: rotate(-6deg);}
+
+
+
+
+/* Button for edit note*/
+
+
+.fill-button {
+  position: relative;
+  overflow:hidden;
+  display:inline-block;
+  width:3.5rem;
+  height:2rem;
+  border:1px solid #35495e;
+  text-align:center;
+  box-sizing:border-box;
+  color:#35495e;
+  text-decoration:none;
+  cursor: pointer;
+  line-height:28px;
+  font-family: 'arial';
+  border-radius: 4px;
+}
+
+.fill-button > span {
+  display:block;
+}
+.fill-button > .fill-button-hover:after, .fill-button > .fill-button-hover:before {
+  position:absolute;
+  top:0;
+  opacity:0;
+  display:block;
+  content:"";
+  width:0;
+  height:30px;
+}
+.fill-button > .fill-button-hover:after {
+  background-color:#35495e;
+  transform:skewX(45deg);
+  transform-origin:center center;
+  transition:all .35s, opacity .4s;
+  left:50%;
+}
+.fill-button .fill-button-hover:before {
+  background-color:#42b883;
+  transition:opacity 1s;
+}
+
+.fill-button .fill-button-text {
+  z-index:1;
+  position:relative;
+  color:#35495e;
+  transition:color .35s;
+}
+.fill-button:hover .fill-button-text {
+  color:#42b883;
+}
+.fill-button .fill-button-hover:hover:after {
+  opacity:1;
+  left:2%;
+  width:95%;
+  transform:skewX(45deg);
+}
+.fill-button > .fill-button-hover:hover:before {
+  opacity: 1;
+  left: 0;
+  width:100%;
+}
+
