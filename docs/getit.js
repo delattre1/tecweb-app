@@ -7,7 +7,7 @@ function getRandomInt(min, max) {
 function editNote(id) {
 	var title = document.getElementsByName('title-' + id)[0].innerText
 	var content = document.getElementsByName('content-' + id)[0].innerText
-
+	var formButton = document.getElementsByName("send-button")[0].innerText = "Atualizar"
 	document.getElementsByName('id-hidden')[0].value = id
 	document.getElementsByName('titulo')[0].value = title
 	document.getElementsByName('detalhes')[0].value = content

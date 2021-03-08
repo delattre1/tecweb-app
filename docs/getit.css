@@ -1,30 +1,8 @@
-/*
-Algumas informações úteis e dicas:
-  - Fontes disponíveis:
-    font-family: 'Roboto', sans-serif;
-    font-family: 'Permanent Marker', cursive;
-  - Cores:
-    Tons de amarelo:
-      #e4fc2b
-      #e0d426
-      #f7d736
-      #e0af26
-      #fcb02b
-    Tons de cinza:
-      #2c2c2c
-      #4c4c4c
-    Cores dos cards:
-      #ead3a7
-      #9de0f5
-      #ef89ba
-      #fae890
-      #abe9c1
-  - Sombra: https://codepen.io/sdthornton/pen/wBZdXq
- */
 
 html,
 body {
   font-family: "Roboto", sans-serif;
+  background-color: #c9c4b3;
 }
 
 .appbar {
@@ -60,6 +38,7 @@ form {
 	box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
 	margin-bottom: 1.5rem;
 	border-radius: 0.35rem;
+	background-color: white;
 }
 
 
@@ -75,11 +54,10 @@ form {
 }
 
 .form-card-content {
-	font-size: 1.5rem;
+	font-size: 1rem;
 	font-family: "Roboto", sans-serif;
 	border: none;
-	margin-top: 0.75rem;
-	margin-left: 0.75rem;
+	margin: 0.75rem;
 	resize: none;
 	margin-bottom: 1rem;
 
