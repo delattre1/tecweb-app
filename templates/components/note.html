@@ -1,5 +1,6 @@
 <div class="card">
 	
+	<div class="buttons-container">
 	<a class="fill-button">
 	  <span class="fill-button-hover">		
 		  <span class="fill-button-text" onclick="editNote({id})">Edit Bonito</span>
@@ -11,8 +12,9 @@
 		  <span class="fill-button-text" onclick="deleteForm({id})">Delete Bonito</span>
 	  </span>
 	</a>
+	</div>
 
-	<form name="deleteForm-{id}" method="post">
+	<form name="deleteForm-{id}" method="post" class="ocult-form">
 		<input type="hidden" name="deleteNote" value="{id}">
 	</form>
 

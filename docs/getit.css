@@ -51,15 +51,15 @@ body {
 form {
 	display: flex;
 	flex-direction: column;
-  align-self: center;
+	align-self: center;
 	width: 33%;
-  margin-right: auto;
+	margin-right: auto;
 	margin-left: auto;
-  margin-top: 2.5rem;
-  margin-bottom: 2rem;
-  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
-  margin-bottom: 1.5rem;
-  border-radius: 0.35rem;
+	margin-top: 2.5rem;
+	margin-bottom: 2rem;
+	box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4);
+	margin-bottom: 1.5rem;
+	border-radius: 0.35rem;
 }
 
 
@@ -70,14 +70,18 @@ form {
   margin: 0.75rem;
 }
 
-.autoresize {
-  font-size: auto;
-  font-family: "Roboto", sans-serif;
-  border: none;
-  margin-top: 0.75rem;
-  margin-left: 0.75rem;
-  resize: none;
-	margin-bottom: 0.1rem;
+.ocult-form {
+	display: none;
+}
+
+.form-card-content {
+	font-size: 1.5rem;
+	font-family: "Roboto", sans-serif;
+	border: none;
+	margin-top: 0.75rem;
+	margin-left: 0.75rem;
+	resize: none;
+	margin-bottom: 1rem;
 
 }
 
@@ -85,10 +89,10 @@ form {
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
-  margin-top: 2rem;
-  margin-bottom: 3rem;
-  margin-right: 4rem;
-  margin-left: 4rem;
+	margin-top: 2rem;
+	margin-bottom: 3rem;
+	margin-right: 4rem;
+	margin-left: 4rem;
 
 }
 
@@ -97,32 +101,40 @@ form {
 	flex-direction: column;
 	justify-content: space-around;
 	width: 25%;
-  height: auto;
+	height: auto;
+	min-width: 8rem;
 	min-height: 8rem;
-  max-width: 15rem;
+	max-width: 15rem;
 	padding: 1rem;
-  margin-top: 1.5rem;
-  margin-bottom: 1rem;
-  margin-right: 0.15rem;
-  margin-left: 0.15rem;
-  border-radius: 0.35rem;
-  box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
+	margin-top: 1.5rem;
+	margin-bottom: 1rem;
+	margin-right: 1.5rem;
+	border-radius: 0.35rem;
+	box-shadow: 0 7px 12px rgba(0, 0, 0, 0.4), 0px 0px 10px rgb(0, 0, 0, 0.05) inset;
+	
 }
 
 .card-title {
     font-family: 'Permanent Marker', cursive;
     font-weight: bold;
     font-size: 1.5rem;
-    margin-top: -0.75rem;
+	margin-bottom: 0.5rem;
 }
 
 .card-content {
-  font-family: 'Permanent Marker', cursive;
-  font-size: 1.2rem;
-  color:#4c4c4c ;
+	font-family: 'Permanent Marker', cursive;
+	font-size: 1.2rem;
+	color:#4c4c4c ;
 	align-self:center;
 } 
 
+.buttons-container {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-around;
+	margin-bottom: 1rem;
+
+}
 /* Você pode usar o CSS comentado abaixo, se ajudar */
 /* Fonte: https://codepen.io/CrisWoler/pen/ogXBLj */
 .btn {
