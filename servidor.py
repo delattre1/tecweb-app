@@ -2,7 +2,7 @@ from utils import build_response
 import socket
 
 from pathlib import Path
-from utils import extract_route, read_file
+from utils import extract_route, read_file, load_template
 from views import index
 
 import os
@@ -29,8 +29,10 @@ while True:
     route = extracted_route[0]
     note_id = extracted_route[1]
     filepath = CUR_DIR / route
+
     if filepath.is_file():
         extension = os.path.splitext(filepath)[1]
+
         if extension == '.css':
             response = build_response(body=read_file(
                 filepath), headers='Content-Type: text/css')
@@ -45,7 +47,7 @@ while True:
 
     else:
         response = build_response(
-            body='404 Not Found', code=404, reason='Not Found')
+        ) + load_template('not_found.html').encode()
 
     client_connection.sendall(response)
     client_connection.close()
